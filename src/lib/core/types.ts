@@ -1,6 +1,8 @@
-export type CSSProperties = string;
-
+export type CSSProperties = Record<string, string>;
 export type ToastType = 'success' | 'error' | 'loading' | 'blank' | 'custom';
+
+export type Optional<T> = T | undefined;
+
 export type ToastPosition =
 	| 'top-left'
 	| 'top-center'
@@ -9,30 +11,15 @@ export type ToastPosition =
 	| 'bottom-center'
 	| 'bottom-right';
 
-export type Renderable = ConstructorOfATypedSvelteComponent | string | null;
-
 export interface IconTheme {
 	primary: string;
 	secondary: string;
 }
 
-export type ValueFunction<TValue, TArg> = (arg: TArg) => TValue;
-export type ValueOrFunction<TValue, TArg> = TValue | ValueFunction<TValue, TArg>;
-
-const isFunction = <TValue, TArg>(
-	valOrFunction: ValueOrFunction<TValue, TArg>
-): valOrFunction is ValueFunction<TValue, TArg> => typeof valOrFunction === 'function';
-
-export const resolveValue = <TValue, TArg>(
-	valOrFunction: ValueOrFunction<TValue, TArg>,
-	arg: TArg
-): TValue => (isFunction(valOrFunction) ? valOrFunction(arg) : valOrFunction);
-
 export interface Toast {
 	type: ToastType;
 	id: string;
-	message: ValueOrFunction<Renderable, Toast>;
-	icon?: Renderable;
+	message: string;
 	duration?: number;
 	pauseDuration: number;
 	position?: ToastPosition;
@@ -69,7 +56,6 @@ export interface ToasterProps {
 	gutter?: number;
 	containerStyle?: CSSProperties;
 	containerClassName?: string;
-	children?: (toast: Toast) => SvelteComponent;
 }
 
 export interface ToastWrapperProps {
@@ -77,5 +63,16 @@ export interface ToastWrapperProps {
 	className?: string;
 	style?: CSSProperties;
 	onHeightUpdate: (id: string, height: number) => void;
-	children?: SvelteComponent;
 }
+
+export type ValueFunction<TValue, TArg> = (arg: TArg) => TValue;
+export type ValueOrFunction<TValue, TArg> = TValue | ValueFunction<TValue, TArg>;
+
+const isFunction = <TValue, TArg>(
+	valOrFunction: ValueOrFunction<TValue, TArg>
+): valOrFunction is ValueFunction<TValue, TArg> => typeof valOrFunction === 'function';
+
+export const resolveValue = <TValue, TArg>(
+	valOrFunction: ValueOrFunction<TValue, TArg>,
+	arg: TArg
+): TValue => (isFunction(valOrFunction) ? valOrFunction(arg) : valOrFunction);

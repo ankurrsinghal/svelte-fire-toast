@@ -5,7 +5,9 @@
 	import LoaderIcon from './loader-icon.svelte';
 	export let toast: Toast;
 
-	const { icon, type, iconTheme } = toast;
+	$: ({ icon, type, iconTheme } = toast);
+
+	$: console.log('iconiconiconiconiconicon', { icon, type, iconTheme });
 </script>
 
 {#if icon !== undefined}
@@ -16,8 +18,6 @@
 	{:else}
 		<svelte:component this={icon} />
 	{/if}
-{:else if type === 'blank'}
-	//
 {:else}
 	<div class="ft-indicator-icon-wrapper">
 		<LoaderIcon {...iconTheme} />

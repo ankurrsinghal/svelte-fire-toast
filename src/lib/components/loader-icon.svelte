@@ -1,9 +1,9 @@
 <script lang="ts">
-	export let primary = '#61d345';
-	export let secondary = '#fff';
+	export let primary = '#616161';
+	export let secondary = '#e0e0e0';
 </script>
 
-<div class="ft-loader-icon" style:border-right-color={primary} style:border-color={secondary}></div>
+<div class="ft-loader-icon" style:border-color={secondary} style:border-right-color={primary}></div>
 
 <style lang="scss">
 	@keyframes ft-loader-icon-rotate {
