@@ -1,58 +1,59 @@
-# create-svelte
+<a href="https://svelte-fire-toast.surge.sh"><img alt="svelte-fire-toast - Try it out" src="https://raw.githubusercontent.com/ankurrsinghal/svelte-fire-toast/main/src/routes/assets/header.png"/></a>
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+<br />
+<div align="center"><strong>Smoking hot  Notifications for Svelte.</strong></div>
+<div align="center"> Lightweight, customizable and beautiful by default.</div>
+<br />
+<div align="center">
+<a href="https://svelte-fire-toast.surge.sh">Website</a> 
+<span> · </span>
+<a href="https://svelte-fire-toast.surge.sh">Documentation</a> 
+<span> · </span>
+<a href="https://twitter.com/ankurpsinghal">Twitter</a>
+</div>
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+<br />
+<div align="center">
+  <sub>Created by <a href="https://twitter.com/ankurpsinghal">Ankur Singhal</a> 👨‍🍳</sub>
+</div>
 
-## Creating a project
+<br />
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- 🔥 **Hot by default**
+- 🔩 **Easily Customizable**
+- ⏳ **Promise API** - _Automatic loader from a promise_
+- 🕊 **Lightweight** - _less than 5kb including styles_
+- ✅ **Accessible**
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Installation
+
+#### With yarn
+
+```sh
+yarn add svelte-fire-toast
 ```
 
-## Developing
+#### With NPM
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```sh
+npm install svelte-fire-toast
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Getting Started
 
-## Building
+Add the Toaster to your app first (entry point +layout.svelte). It will take care of rendering all notifications emitted. Now you can trigger `toast()` or `use:fireAction` from anywhere!
 
-To build your library:
+```svelte
+<script>
+	import { Toaster, toastAction } from 'svelte-fire-toast';
+</script>
 
-```bash
-npm run package
+<Toaster />
+<button use:toastAction={'Toasted!'}> Fire </button>
 ```
 
-To create a production version of your showcase app:
+## Documentation
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+Find the full API reference on [official documentation](https://svelte-fire-toast.surge.sh).
