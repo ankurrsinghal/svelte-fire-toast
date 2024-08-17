@@ -179,6 +179,6 @@
 		</div>
 	</div>
 	<div class="md:h-72 w-full overflow-auto rounded-lg">
-		<Code {snippet} class="!h-auto min-h-full" />
+		<!-- <Code {snippet} class="!h-auto min-h-full" /> -->
 	</div>
 </section>
