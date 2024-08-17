@@ -2,12 +2,10 @@
 	import './tailwind-utilities.css';
 	import './page.css';
 	import './code.css';
-	import { fireAction } from '$lib/core/actions.js';
+	import { toastAction } from '$lib/core/actions.js';
 	import Toaster from '$lib/components/toaster.svelte';
 	import HeaderCodeSnippet from './components/header-code-snippet.svelte';
 	import Features from './components/features.svelte';
-	import Steps from './components/steps.svelte';
-	import Code from './components/code.svelte';
 	import ToastExample from './components/sections/toast-example.svelte';
 	import Installation from './components/get-started/installation.svelte';
 	import AddComponent from './components/get-started/add-component.svelte';
@@ -19,7 +17,7 @@
 		<div class="flex-1 sm:text-center text-8xl sm:text-8xl flex items-center gap-8">
 			<h1 class="font-bold">Svelte</h1>
 			<button
-				use:fireAction={'Toasted!'}
+				use:toastAction={'Toasted!'}
 				class="h-[144px] shadow fire-gradient bg-orange-700 text-white py-4 w-[275px] text-left pl-8 rounded-md my-4 border-b-amber-800 border-b-[16px] active:border-b-0 hover:border-b-[10px] focus:border-b-[10px] transition-[border]"
 			>
 				<h1 class="font-bold flex items-center">

@@ -1,7 +1,7 @@
 import { toast } from './toast.js';
 import type { ToastOptions } from './types.js';
 
-export function fireAction<T extends HTMLElement>(
+export function toastAction<T extends HTMLElement>(
 	node: T,
 	message: string,
 	toastOptions?: ToastOptions
